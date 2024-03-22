@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  database.local:
+    image: mariadb:10.5.19
+    expose:
+      - 3306
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: GanheComSorteEGanheBem@!3r22234
+      MYSQL_DATABASE: reinte33_payment
+      MYSQL_USER: reinte33_payment_user
+      MYSQL_PASSWORD: GanheComSorteEGanheBem@!3r22234
+      MYSQL_MAX_CONNECTIONS: 9000
+    volumes:
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+      - ./database:/var/lib/mysql
+    command: --init-file /docker-entrypoint-initdb.d/dump.sql
+
+

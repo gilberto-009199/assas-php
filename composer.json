@@ -1,0 +1,30 @@
+{
+    "name": "propheta/sdk",
+    "description": "Sales Assas",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gil",
+            "email": "gilberto.tec@vivaldi.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MyApplication\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.4.33",
+        "ext-mysqli": "*",
+        "codephix/asaas-sdk": "^2.0.5",
+        "firebase/php-jwt": "^6.10",
+        "phpmailer/phpmailer": "^6.9",
+        "bacon/bacon-qr-code": "^2.0",
+        "simplesoftwareio/simple-qrcode": "^4.2",
+        "endroid/qr-code": "^4.6",
+        "chillerlan/php-qrcode": "^5.0",
+        "ramsey/uuid": "^4.2",
+        "jakobo/hotp-php": "^2.0"
+    }
+}
