@@ -10,11 +10,11 @@ $_ENV['DB_PASS'] = '';
 
 
 // API KEY HOMOLOGACAO
-$_ENV['ASSAS_API'] = '$aact_YTU5YTE0M2M2N2I4MTliNzk0YTI5N2U5MzdjNWZmNDQ6OjAwMDAwMDAwMDAwMDAwNzQ2MTg6OiRhYWNoXzk1Y2JlNzc2LTMxYjctNGFmZi04MGMxLTM3ZDJkNjRkNjRmMw==';
+$_ENV['ASSAS_API'] = '';
 $_ENV['ASSAS_ENV'] = 'homologacao';
 
 // Senha para validar webhook's
-$_ENV['WEBHOOK'] = '5sad8sa4asd56d4as68d56as4d8aw84d6as4d65a1d651a368w1das51de4w343rhjh74gf98hgfhnb17b879g49874hf5g6hg48f9';
+$_ENV['WEBHOOK'] = '';
 
 // Valor de compra do Propheta
 $_ENV['PROPHETA_PRICE'] = 6.30;
