@@ -8,11 +8,12 @@
 ![home](./home.png)
 
 <img align="right" src="./assets/php.svg" alt="PHP" width="64px"/>
+<img align="right" src="./assets/assas.svg" alt="Assas" width="64px"/>
 <img align="right" src="./assets/docker16x16.svg" alt="Docker" width="64px"/>
 <img align="right" src="./assets/jquery.svg" alt="JQuery" width="64px"/>
 <img align="right" src="./assets/bootstrap.svg" alt="Bootstrap" width="64px"/>
 
-Exemplo de integração com o assas para gerar link de pagamento. Usando **PHP**, **Docker**, **JQuery** e **Bootstrap**.
+Exemplo de integração com o **assas** para gerar link de pagamento. Usando **PHP**, **Docker**, **JQuery** e **Bootstrap**.
 
 
 ## How Run
