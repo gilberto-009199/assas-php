@@ -3,7 +3,7 @@
         'name' => 'propheta/sdk',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'ac6886458c8c512034be8340df84f328a78b5440',
+        'reference' => '2f5053bd34d55e32232d0744b4cc8babafb4ac4a',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -82,6 +82,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'heroku/heroku-buildpack-php' => array(
+            'pretty_version' => 'v265',
+            'version' => '265.0.0.0',
+            'reference' => '86d85038a27f17254164d68dffbbe580f5ea58ea',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../heroku/heroku-buildpack-php',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
         'jakobo/hotp-php' => array(
             'pretty_version' => 'v2.0.0',
             'version' => '2.0.0.0',
@@ -103,7 +112,7 @@
         'propheta/sdk' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'ac6886458c8c512034be8340df84f328a78b5440',
+            'reference' => '2f5053bd34d55e32232d0744b4cc8babafb4ac4a',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
