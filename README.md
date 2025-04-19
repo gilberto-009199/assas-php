@@ -2,7 +2,7 @@
 
 # Integração com Assas  
 
-> ATENÇÃO, essa aplicação e Legada e Não tem quqlquer proteção basica.
+> ATENÇÃO, essa aplicação e Legada e Não tem qualquer proteção basica.
 >
 
 ![home](./home.png)
