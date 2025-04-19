@@ -26,5 +26,8 @@
         "ramsey/uuid": "^4.2",
         "jakobo/hotp-php": "^2.0",
         "codephix/asaas-sdk": "^2.0"
+    },
+    "require-dev": {
+        "heroku/heroku-buildpack-php": "*"
     }
 }
