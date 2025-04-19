@@ -10,7 +10,7 @@
 <img align="right" src="./assets/php.svg" alt="PHP" width="32px"/>
 <img align="right" src="./assets/assas.svg" alt="Assas" width="32px"/>
 <img align="right" src="./assets/docker16x16.svg" alt="Docker" width="32px"/>
-<img align="right" src="./assets/jquery.svg" alt="JQuery" width="32px"/>
+<img align="right" src="./assets/jquery.svg" alt="JQuery" width="48px"/>
 <img align="right" src="./assets/bootstrap.svg" alt="Bootstrap" width="32px"/>
 <img align="right" src="./assets/mariadb.svg" alt="MariaDB" width="32px"/>
 
