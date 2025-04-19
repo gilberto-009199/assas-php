@@ -1,14 +1,12 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
+RewriteEngine On
 
-    # Permite acesso ao index.php e webhook.php
-    RewriteCond %{REQUEST_URI} !^/index\.php$
-    RewriteCond %{REQUEST_URI} !^/webhook\.php$
+# Permite acesso ao index.php e webhook.php
+RewriteCond %{REQUEST_URI} !^/index\.php$
+RewriteCond %{REQUEST_URI} !^/webhook\.php$
 
-    # Permite acesso a pastas públicas
-    RewriteCond %{REQUEST_URI} !^/icofont/
-    RewriteCond %{REQUEST_URI} !^/componente/
+# Permite acesso a pastas públicas
+RewriteCond %{REQUEST_URI} !^/icofont/
+RewriteCond %{REQUEST_URI} !^/componente/
 
-    # Se não bateu com nenhuma condição acima, bloqueia
-    RewriteRule ^.*$ - [F,L]
-</IfModule>
+# Se não bateu com nenhuma condição acima, bloqueia
+RewriteRule ^.*$ - [F,L]
