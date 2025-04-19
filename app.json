@@ -1,6 +1,17 @@
 {
     "name": "Exemplo de integração com Assas",
     "description": "App de pagamento com integração Assas",
+    "buildpacks": [
+      {
+        "url": "heroku/php"
+      }
+    ],
+    "addons": [
+      "jawsdb"
+    ],
+    "scripts": {
+      "postdeploy": "php heroku.php"
+    },
     "env": {
       "PRODUCT_NAME": {
         "description": "Nome do produto",
