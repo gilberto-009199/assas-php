@@ -40,42 +40,42 @@ use MyApplication\Configure;
                         <!-- Metodo de Pagamento -->
                         
                         <div class="row">
+                        
+                            <input type="hidden" value="" name="tipoPagamento">
 
-                                <!-- Cartão -->
-                                <div class="col-4 text-center border-end">
-                                    <div class="payment-card">
-                                        <div class="payment-card-icon">
-                                            <i class="fa-regular fa-credit-card"></i>
-                                        </div>
-                                        <div class="payment-card-text">
-                                            Cartão Credito/Debito
-                                        </div>
+                            <!-- Cartão -->
+                            <div class="col-4 text-center border-end">
+                                <div class="payment-card" data-tipoPagamento="CREDIT_CARD">
+                                    <div class="payment-card-icon">
+                                        <i class="fa-regular fa-credit-card"></i>
+                                    </div>
+                                    <div class="payment-card-text">
+                                        Cartão Credito/Debito
                                     </div>
                                 </div>
-                                <!-- PIX -->
-                                <div class="col-4 text-center border-end">
-                                    <div class="payment-card">
-                                        <div class="payment-card-icon">
-                                            <i class="fa-brands fa-pix"></i>
-                                        </div>
-                                        <div class="payment-card-text">
-                                            Pix
-                                        </div>
+                            </div>
+                            <!-- PIX -->
+                            <div class="col-4 text-center border-end">
+                                <div class="payment-card" data-tipoPagamento="PIX">
+                                    <div class="payment-card-icon">
+                                        <i class="fa-brands fa-pix"></i>
+                                    </div>
+                                    <div class="payment-card-text">
+                                        Pix
                                     </div>
                                 </div>
-                                <!-- Boleto -->
-                                <div class="col-4 text-center">
-                                    <div class="payment-card">
-                                        <div class="payment-card-icon">
-                                            <i class="fa-solid fa-barcode"></i>
-                                        </div>
-                                        <div class="payment-card-text">
-                                            Boleto
-                                        </div>
+                            </div>
+                            <!-- Boleto -->
+                            <div class="col-4 text-center">
+                                <div class="payment-card" data-tipoPagamento="BOLETO">
+                                    <div class="payment-card-icon">
+                                        <i class="fa-solid fa-barcode"></i>
+                                    </div>
+                                    <div class="payment-card-text">
+                                        Boleto
                                     </div>
                                 </div>
-
-                                    
+                            </div>
                         </div>
                         <br>
                         <!-- Dados de Pagamento -->
@@ -197,10 +197,10 @@ use MyApplication\Configure;
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <th> Licença Propheta </th>
+                                                    <th> <?=$_ENV['PRODUCT_NAME']?> </th>
                                                 </td>
                                                 <td>
-                                                    <th> R$ <?=number_format($_ENV['PROPHETA_PRICE'], 2, ',', '.')?> </th>
+                                                    <th> R$ <?=number_format($_ENV['PRODUCT_PRICE'], 2, ',', '.')?> </th>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -210,7 +210,7 @@ use MyApplication\Configure;
                                                     <th> Total </th>
                                                 </td>
                                                 <td>
-                                                    <th> R$ <?=number_format($_ENV['PROPHETA_PRICE'], 2, ',', '.')?> </th>
+                                                    <th> R$ <?=number_format($_ENV['PRODUCT_PRICE'], 2, ',', '.')?> </th>
                                                 </td>
                                             </tr>
                                         </tfoot>
@@ -326,7 +326,7 @@ use MyApplication\Configure;
                     var cpfCnpj = $('#cpfCnpj').val().replace(/[^\d]/g, '');
                     var email = $('#email').val().trim();
                     var telefoneCelular = $('#telefoneCelular').val().replace(/[^\d]/g, '');
-
+                    
                     if (!nomeRazaoSocial || !cpfCnpj || !email || !telefoneCelular) {
                         return alert('Todos os campos são obrigatórios.');
                     }
@@ -342,7 +342,7 @@ use MyApplication\Configure;
                         data: formData
                     }).then(res=>{
                         $('#loader').addClass('hidden');
-                        console.log("Res:", res);
+
                         if(res.invoiceUrl){
                             window.location = res.invoiceUrl;
                         }
@@ -386,7 +386,9 @@ use MyApplication\Configure;
                     }
 
                     if(card.toggleClass('active')){
-                        console.log("Alterar input[name=method]");
+
+                        $('input[name="tipoPagamento"]').val(card.attr('data-tipoPagamento'));
+
                     }
                 })
             });

@@ -76,7 +76,7 @@ namespace MyApplication{
             if(!$config->assas->enabled())return false;
             
             // verify sale enabled
-            if(!$_ENV['PROPHETA_SALE']) return false;
+            if(!$_ENV['PRODUCT_SALE']) return false;
 
             return true;
         }

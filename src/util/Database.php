@@ -27,10 +27,13 @@ namespace MyApplication\util{
                 $dbHost = $_ENV['DB_HOST'];
                 $dbName = $_ENV['DB_NAME'];
                 $dbUser = $_ENV['DB_USER'];
-                $dbPass = $_ENV['DB_PASS'];
+                $dbPass = $_ENV['DB_PASSWORD'];
 
                 // Criando uma conexão PDO com o banco de dados
-                $this->pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
+                $this->pdo = new PDO('mysql:host='. $dbHost .';dbname='. $dbName .';charset=utf8',
+                 $dbUser,
+                 $dbPass
+                );
 
                 // Configurando o PDO para lançar exceções em caso de erros
                 $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -45,8 +48,12 @@ namespace MyApplication\util{
             } catch (PDOException $e) {
                 // Em um ambiente real, você pode querer lidar com o erro de conexão de alguma forma
                 // Por exemplo, lançar uma exceção personalizada ou logar o erro
-                //die("Erro ao conectar ao banco de dados: " . $e->getMessage());
-                $this->hasConnected = false;
+                
+                
+                echo "Mensagem: " . $e->getMessage() . "<br>";
+                
+                die("Mensagem: " . $e->getMessage() . "<br>");
+
             }
         }
 

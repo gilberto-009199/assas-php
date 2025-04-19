@@ -1,0 +1,47 @@
+{
+    "name": "Exemplo de integração com Assas",
+    "description": "App de pagamento com integração Assas",
+    "env": {
+      "PRODUCT_NAME": {
+        "description": "Nome do produto",
+        "value": "Serviço De Hospedagem"
+      },
+      "PRODUCT_PRICE": {
+        "description": "Preço do produto",
+        "value": "6.30"
+      },
+      "PRODUCT_MAX_INSTALLMENTES": {
+        "description": "Máximo de parcelas permitidas",
+        "value": "1"
+      },
+      "PRODUCT_SALE": {
+        "description": "Indica se as vendas estão ativas",
+        "value": "true"
+      },
+      "ASSAS_API": {
+        "description": "Chave da API do Assas",
+        "value": "$aact_hmlg_000MzkwODA2MWY2OGM3MWRlMDU2NWM3MzJlNzZmNGZhZGY6OjRiN2JiYzk4LTg0ZjUtNDVlMS1hZTU1LTFlODBkZGE1NDk0Yzo6JGFhY2hfZTNkMmU5YTctYmVmYS00MmNkLTgwMTgtMDliZTIxZmIzYTZi"
+      },
+      "ASSAS_ENV": {
+        "description": "Ambiente do Assas (homologacao ou producao)",
+        "value": "homologacao"
+      },
+      "WEBHOOK": {
+        "description": "Senha de autenticação dos webhooks",
+        "value": ""
+      },
+      "PRODUCT_MAIL_COMMERCIAL_SMTP": {
+        "description": "SMTP para e-mail comercial",
+        "value": ""
+      },
+      "PRODUCT_MAIL_COMMERCIAL": {
+        "description": "E-mail comercial",
+        "value": ""
+      },
+      "PRODUCT_MAIL_COMMERCIAL_PASS": {
+        "description": "Senha do e-mail comercial",
+        "value": ""
+      }
+    }
+  }
+  

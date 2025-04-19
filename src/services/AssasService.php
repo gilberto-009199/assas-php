@@ -63,18 +63,20 @@ namespace MyApplication\services{
             $billingTypes = array("CREDIT_CARD", "PIX", "BOLETO");
 
             if ( !isset($cobranca['billingType']) || !in_array($cobranca['billingType'], $billingTypes)){
-                $cobranca['billingType'] = 'UNDEFINED';
+                $cobranca['billingType'] = 'CREDIT_CARD';
             }
 
             $cobranca['customer'] = $clienteAsa->id;
             
-            $cobranca['value'] = isset($cobrancaDAO['preco']) && $cobrancaDAO['preco'] > $_ENV['PROPHETA_PRICE'] ? $cobrancaDAO['preco'] : $_ENV['PROPHETA_PRICE'];
+            $cobranca['value'] = isset($cobrancaDAO['preco']) && $cobrancaDAO['preco'] > $_ENV['PRODUCT_PRICE'] ? $cobrancaDAO['preco'] : $_ENV['PRODUCT_PRICE'];
 
             /* Precisa definir o site em minhas informaçoes
             $cobranca['callback'] = [
                 'autoRedirect' => true,
                 'successUrl' => 'https://propheta.net/sales/success_payment.php'
             ];*/
+            
+            //echo json_encode($cobranca);
 
             return $this->asa->Cobranca()->create($cobranca);
 
@@ -89,11 +91,12 @@ namespace MyApplication\services{
 
                 $this->asa = new Asaas($API_KEY, $API_ENV ? $API_ENV : 'homologacao'); // 'producao|homologacao'
                 
-                $clientes = $this->asa->Cliente()->getAll([]);
+                $clientes = $this->asa->Cliente()->getAll([]);                
 
                 $this->hasConnected = !isset($clientes->error) && empty($clientes->error);
 
             } catch (\Exception $e) {
+
                 $this->hasConnected = false;
             }
         }

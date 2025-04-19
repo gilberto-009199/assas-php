@@ -1,49 +1,52 @@
 <?php
 
-namespace MyApplication\util{
+namespace MyApplication\util {
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
     class Mailto {
 
-        public static function send( $receive, $name, $subject, $body ){
+        public static function send($receive, $name, $subject, $body) {
+
+            $smtp     = $_ENV['PRODUCT_MAIL_COMMERCIAL_SMTP'] ?? null;
+            $user     = $_ENV['PRODUCT_MAIL_COMMERCIAL'] ?? null;
+            $password = $_ENV['PRODUCT_MAIL_COMMERCIAL_PASS'] ?? null;
+
+            // Verifica se todas as variáveis necessárias estão definidas
+            if (!$smtp || !$user || !$password) {
+                error_log("Email não enviado: variáveis de ambiente ausentes.");
+                return false;
+            }
 
             try {
-                
                 $mail = new PHPMailer(true);
 
-                $mail->Host = 'smtp.live.com';
+                $mail->isSMTP();
+                $mail->Host = $smtp;
                 $mail->Port = 587;
                 $mail->SMTPSecure = 'tls';
                 $mail->SMTPAuth = true;
+                $mail->Username = $user;
+                $mail->Password = $password;
 
-                $mail->Username = $_ENV['PROPHETA_MAIL_COMMERCIAL'];
-                $mail->Password = $_ENV['PROPHETA_MAIL_COMMERCIAL_PASS'];
-
-                $mail->setFrom($_ENV['PROPHETA_MAIL_COMMERCIAL'], 'Commercial Propheta');
-
-                $mail->addAddress('suporte@propheta.net', 'Reply');
+                $mail->setFrom($user, 'Commercial');
+                $mail->addAddress($user, 'Commercial Venda Feita');
                 $mail->addAddress($receive, $name);
-                
+
                 $mail->isHTML(true);
-                $mail->CharSet = 'UTF-8'; // Definindo a codificação como UTF-8
-                
+                $mail->CharSet = 'UTF-8';
+
                 $mail->Subject = $subject;
-
-                $body =  "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>" . $body;
-
-                $mail->Body = $body;
+                $mail->Body = "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>" . $body;
 
                 return $mail->send();
 
             } catch (Exception $e) {
-                echo 'Erro ao enviar o e-mail: ' . $mail->ErrorInfo;
+                error_log('Erro ao enviar o e-mail: ' . $mail->ErrorInfo);
+                return false;
             }
-
         }
-
-        
     }
 
 }

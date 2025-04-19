@@ -40,15 +40,16 @@ namespace MyApplication\services{
 
                     $clienteDAO = Configure::DAO()->getClienteById($cobrancaDAO['idClientes']);
                     
-                    Mailto::send($clienteDAO['email'], $clienteDAO['nomeRazaoSocial'], "[Propheta] Sua Licença Esta Pronta", "
+                    Mailto::send(
+                        $clienteDAO['email'],
+                        $clienteDAO['nomeRazaoSocial'],
+                        $_ENV['PRODUCT_NAME']." Esta Pronto",
+                        "
                         Olá, ". $clienteDAO['nomeRazaoSocial'] ."<br>
-                        
-                            Confirmamos o seu pagamento! Acesse o link a baixo para pegar a licença:<br>
-                            <a href='https://propheta.net/sales/licenca.php?token=$token'>https://propheta.net/sales/licenca?token=$token</a>
-                            <br><br>
-                        Comercial Propheta,<br>
-                        suporte: <a src='mailto:suporte@propheta.net'>suporte@propheta.net</a><br>
-                        site: <a src='https://propheta.net/'>https://propheta.net/</a>
+                            Confirmamos o seu pagamento!
+                            <br>
+                            <br>
+                        Comercial<br>
                     ");
 
                     break;
@@ -94,9 +95,9 @@ namespace MyApplication\services{
             }
 
             $cobranca = array(
-                'produto'       => "Propheta licensa",
+                'produto'       => $_ENV['PRODUCT_NAME'],
                 'tipoPagamento' => $res['tipoPagamento'],
-                'preco'         => $_ENV['PROPHETA_PRICE'],
+                'preco'         => $_ENV['PRODUCT_PRICE'],
                 'vencimento'    => strtotime("+2 weeks", time())
             );
 
