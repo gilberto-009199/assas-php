@@ -39,19 +39,23 @@
       },
       "WEBHOOK": {
         "description": "Senha de autenticação dos webhooks",
-        "value": ""
+        "value": "",
+        "required": false
       },
       "PRODUCT_MAIL_COMMERCIAL_SMTP": {
         "description": "SMTP para e-mail comercial",
-        "value": ""
+        "value": "",
+        "required": false
       },
       "PRODUCT_MAIL_COMMERCIAL": {
         "description": "E-mail comercial",
-        "value": ""
+        "value": "",
+        "required": false
       },
       "PRODUCT_MAIL_COMMERCIAL_PASS": {
         "description": "Senha do e-mail comercial",
-        "value": ""
+        "value": "",
+        "required": false
       }
     }
   }
